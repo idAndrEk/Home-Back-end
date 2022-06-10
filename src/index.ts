@@ -1,5 +1,5 @@
 import express, {Request, Response} from 'express'
-import bodyParser from "body-parser";
+import bodyParser from "body-parser"
 
 //creat express app
 const app = express()
@@ -7,6 +7,9 @@ const port = process.env.PORT || 5000
 
 const products = [{id: 1, title: 'tomato'}, {id: 2, title: 'orange'}]
 const addresses = [{id: 1,value: 'Nezalejnasti 12'}, {id: 2, value: 'Selickage 11'}]
+
+const parserMiddleware = bodyParser({})
+app.use(parserMiddleware)
 
 app.get('/products', (req: Request, res: Response) => {
     if (req.query.title) {
