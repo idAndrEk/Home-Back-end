@@ -1,5 +1,6 @@
 import express, {Request, Response} from 'express'
-import body
+import bodyParser from "body-parser"
+
 //creat express app
 const app = express()
 const port = process.env.PORT || 5000
