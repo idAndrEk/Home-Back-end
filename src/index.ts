@@ -5,6 +5,9 @@ import {addressesRouter} from "./routes/addresses-router";
 
 //creat express app
 const app = express()
+
+app.use(bodyParser())
+
 const port = process.env.PORT || 5000
 
 
