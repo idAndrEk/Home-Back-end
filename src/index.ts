@@ -27,10 +27,18 @@ app.post('/products', (req: Request, res: Response) => {
     products.push(newProduct)
     res.status(201).send(newProduct)
 })
-
 app.get('/products/:id', (req: Request, res: Response) => {
     let product = products.find(p => p.id === +req.params.id);
     if (product) {
+        res.send(product)
+    } else {
+        res.send(404)
+    }
+   })
+app.put('/products/:id', (req: Request, res: Response) => {
+    let product = products.find(p => p.id === +req.params.id);
+    if (product) {
+        product.title = req.body.title
         res.send(product)
     } else {
         res.send(404)
@@ -57,9 +65,6 @@ app.get ('/addresses/:id', (req: Request, res: Response) => {
         res.send(404)
     }
 })
-
-
-
 
 //start app
 app.listen(port, () => {
